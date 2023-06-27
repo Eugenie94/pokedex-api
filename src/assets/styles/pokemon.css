@@ -52,9 +52,11 @@ li {
 }
 
 input {
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-size: 20px;
+    width: 130px;
+}
+
+select {
+    margin-right: 20px;
 }
 
 .normal {

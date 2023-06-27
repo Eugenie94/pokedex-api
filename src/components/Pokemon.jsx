@@ -34,6 +34,8 @@ export default function Pokemon({ pokemons, addPokemon, deletePokemon, updatePok
   const [searchTerm, setSearchTerm] = useState('');
   // État des Pokémon filtrés
   const [filteredPokemons, setFilteredPokemons] = useState([]);
+  // État de la langue
+  const [language, setLanguage] = useState('fr');
 
   // Fonction pour obtenir la couleur correspondant au type du Pokémon
   const getTypeColor = (type) => {
@@ -59,12 +61,31 @@ export default function Pokemon({ pokemons, addPokemon, deletePokemon, updatePok
     setSearchTerm(event.target.value);
   };
 
+  // Récupérer le nom du Pokémon en fonction de la langue sélectionnée
+  const getPokemonName = (pokemon) => {
+    if (language === 'en') {
+      return pokemon.name.english;
+    } else {
+      return pokemon.name.french;
+    }
+  };
+
+  // Gérer le changement de langue
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
   return (
     <div>
+      {/* Sélecteur de langue */}
+      <select value={language} onChange={handleLanguageChange}>
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
       {/* Champ de recherche */}
       <input
         type="text"
-        placeholder="Rechercher un Pokémon"
+        placeholder={`Pokémon en ${language === 'en' ? 'English' : 'Français'}`}
         value={searchTerm}
         onChange={handleSearch}
       />
@@ -73,7 +94,7 @@ export default function Pokemon({ pokemons, addPokemon, deletePokemon, updatePok
         {filteredPokemons.map((pokemon) => (
           <div key={pokemon.id} className={`pokemon-card ${pokemon.type[0].toLowerCase()}`}>
             <div className="pokemon-info">
-              <h2 className="pokemon-name">{pokemon.name.french}</h2>
+              <h2 className="pokemon-name">{getPokemonName(pokemon)}</h2>
               <p className="pokemon-type" style={{ backgroundColor: getTypeColor(pokemon.type) }}>
                 {pokemon.type.join(', ')}
               </p>
