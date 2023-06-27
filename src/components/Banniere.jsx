@@ -19,16 +19,6 @@ export default function Banniere() {
             <Link to="/">
               <img src={logo} className="logo" alt="Logo" />
             </Link>
-            <div className="menu">
-              <ul>
-                <li>
-                  <Link to="/">Liste Pokémons</Link>
-                </li>
-                <li>
-                  <Link to="/pokedex">Mon Pokédex</Link>
-                </li>
-              </ul>
-            </div>
           </div>
         </nav>
       </header>

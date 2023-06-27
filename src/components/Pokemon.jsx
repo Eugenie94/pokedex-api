@@ -36,8 +36,8 @@ export default function Pokemon() {
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   // État de la langue
   const [language, setLanguage] = useState('fr');
-    // État du nouveau Pokémon
-    const [newPokemon, setNewPokemon] = useState(null);
+  // État du nouveau Pokémon
+  const [newPokemon, setNewPokemon] = useState(null);
 
   // Fonction pour obtenir la couleur correspondant au type du Pokémon
   const getTypeColor = (type) => {
@@ -96,23 +96,22 @@ export default function Pokemon() {
         Speed: 100,
       },
     };
-  
+
     setNewPokemon(newPokemon);
     setFilteredPokemons([...filteredPokemons, newPokemon]);
   };
-   
+
   return (
-    
     <div>
       <div>
-              {/* Champ de recherche */}
-      <input
-      className='input'
-        type="text"
-        placeholder={`Pokémon en ${language === 'en' ? 'English' : 'Français'}`}
-        value={searchTerm}
-        onChange={handleSearch}
-      />
+        {/* Champ de recherche */}
+        <input
+          className='input'
+          type="text"
+          placeholder={`Pokémon en ${language === 'en' ? 'English' : 'Français'}`}
+          value={searchTerm}
+          onChange={handleSearch}
+        />
       </div>
       {/* Sélecteur de langue */}
       <select value={language} onChange={handleLanguageChange}>
@@ -120,8 +119,8 @@ export default function Pokemon() {
         <option value="en">English</option>
       </select>
 
-                {/* Bouton de création d'un nouveau Pokémon (il faut checker tout en bas après avoir créer un nouveau pokémon) */}
-    <button onClick={createNewPokemon}>Créer un nouveau Pokémon</button>
+      {/* Bouton de création d'un nouveau Pokémon (il faut checker tout en bas après avoir créer un nouveau pokémon) */}
+      <button onClick={createNewPokemon}>Créer un nouveau Pokémon</button>
       {/* Liste des Pokémon */}
       <div className="pokemon">
         {filteredPokemons.map((pokemon) => (

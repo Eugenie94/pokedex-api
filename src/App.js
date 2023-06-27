@@ -7,7 +7,6 @@ import { Link, Routes, Route } from 'react-router-dom';
 // import components
 import Banniere from './components/Banniere';
 import Pokemon from './components/Pokemon';
-import Pokedex from './components/Pokedex';
 
 // import assets
 import './App.css';
@@ -18,7 +17,6 @@ function App() {
       <Banniere />
       <Routes>
         <Route path="/" element={<Pokemon />} />
-        <Route path="/pokedex" element={<Pokedex />} />
     </Routes>
     </div>
   );
