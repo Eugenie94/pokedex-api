@@ -7,7 +7,7 @@ import pokemonsData from '../data/pokedex.json';
 // Import assets
 import '../assets/styles/pokemon.css'
 
-export default function Pokemon({ pokemons, addPokemon, deletePokemon, updatePokemon }) {
+export default function Pokemon() {
   // Définition des couleurs pour chaque type de Pokémon
   const typeColors = {
     normal: '#A8A77A',
