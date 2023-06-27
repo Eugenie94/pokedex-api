@@ -2,7 +2,7 @@
 import React from 'react';
 
 // import Link Routes
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // import components
 import Banniere from './components/Banniere';

@@ -115,7 +115,7 @@ export default function Pokemon() {
           placeholder={`Pokémon en ${language === 'en' ? 'English' : 'Français'}`}
           value={searchTerm}
           onChange={handleSearch}
-        />
+        /><br/><br/>
       </div>
       {/* Sélecteur de langue */}
       <select value={language} onChange={handleLanguageChange}>

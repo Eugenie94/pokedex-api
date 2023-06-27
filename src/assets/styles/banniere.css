@@ -1,4 +1,3 @@
-/* Styles pour la bannière */
 .banniere {
   background-color: #f3f3f3;
   padding: 20px;
@@ -10,7 +9,6 @@
   color: #333;
 }
 
-/* Styles pour les liens */
 .navbar {
   display: flex;
   justify-content: center;
@@ -28,7 +26,6 @@
 
 .navbar a:hover {
   color: #ff0000;
-  /* Changez la couleur au survol */
 }
 
 .logo {
