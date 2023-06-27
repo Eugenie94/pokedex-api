@@ -36,6 +36,8 @@ export default function Pokemon() {
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   // État de la langue
   const [language, setLanguage] = useState('fr');
+    // État du nouveau Pokémon
+    const [newPokemon, setNewPokemon] = useState(null);
 
   // Fonction pour obtenir la couleur correspondant au type du Pokémon
   const getTypeColor = (type) => {
@@ -75,20 +77,51 @@ export default function Pokemon() {
     setLanguage(event.target.value);
   };
 
+  // Créer un nouveau Pokémon
+  const createNewPokemon = () => {
+    const id = Math.max(...pokemonsData.map((pokemon) => pokemon.id)) + 1;
+    const newPokemon = {
+      id,
+      name: {
+        english: 'New Pokemon',
+        french: 'Nouveau Pokémon',
+      },
+      type: ['normal'],
+      base: {
+        HP: 100,
+        Attack: 100,
+        Defense: 100,
+        'Sp. Attack': 100,
+        'Sp. Defense': 100,
+        Speed: 100,
+      },
+    };
+  
+    setNewPokemon(newPokemon);
+    setFilteredPokemons([...filteredPokemons, newPokemon]);
+  };
+   
   return (
+    
     <div>
-      {/* Sélecteur de langue */}
-      <select value={language} onChange={handleLanguageChange}>
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
-      {/* Champ de recherche */}
+      <div>
+              {/* Champ de recherche */}
       <input
+      className='input'
         type="text"
         placeholder={`Pokémon en ${language === 'en' ? 'English' : 'Français'}`}
         value={searchTerm}
         onChange={handleSearch}
       />
+      </div>
+      {/* Sélecteur de langue */}
+      <select value={language} onChange={handleLanguageChange}>
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+
+                {/* Bouton de création d'un nouveau Pokémon (il faut checker tout en bas après avoir créer un nouveau pokémon) */}
+    <button onClick={createNewPokemon}>Créer un nouveau Pokémon</button>
       {/* Liste des Pokémon */}
       <div className="pokemon">
         {filteredPokemons.map((pokemon) => (
