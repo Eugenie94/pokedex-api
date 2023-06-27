@@ -46,17 +46,15 @@ export default function Pokemon() {
   };
 
   useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      // Filtrer les Pokémon en fonction du terme de recherche
-      const filtered = pokemonsData.filter((pokemon) =>
-        pokemon.name.french.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      // Mettre à jour la liste des Pokémon filtrés
-      setFilteredPokemons(filtered);
-    }, 300);
+    // Filtrer les Pokémon en fonction du terme de recherche
+    const filtered = pokemonsData.filter((pokemon) =>
+      pokemon.name.french.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-    return () => clearTimeout(delayDebounceFn);
+    // Mettre à jour la liste des Pokémon filtrés
+    setFilteredPokemons(filtered);
   }, [searchTerm]);
+
 
   // Gérer les modifications du terme de recherche
   const handleSearch = (event) => {
@@ -77,7 +75,7 @@ export default function Pokemon() {
     setLanguage(event.target.value);
   };
 
-  // Créer un nouveau Pokémon
+  // Fonction qui permet de créer un nouveau Pokémon
   const createNewPokemon = () => {
     const id = Math.max(...pokemonsData.map((pokemon) => pokemon.id)) + 1;
     const newPokemon = {
@@ -99,6 +97,12 @@ export default function Pokemon() {
 
     setNewPokemon(newPokemon);
     setFilteredPokemons([...filteredPokemons, newPokemon]);
+  };
+
+  // Fonction qui permet de supprimer un Pokémon
+  const deletePokemon = (id) => {
+    const updatedPokemons = filteredPokemons.filter((pokemon) => pokemon.id !== id);
+    setFilteredPokemons(updatedPokemons);
   };
 
   return (
@@ -138,6 +142,8 @@ export default function Pokemon() {
                 <li>Special Defense: {pokemon.base["Sp. Defense"]}</li>
                 <li>Speed: {pokemon.base.Speed}</li>
               </ul>
+              {/* Bouton de suppression d'un Pokémon */}
+              <button onClick={() => deletePokemon(pokemon.id)}>Supprimer</button>
             </div>
           </div>
         ))}
