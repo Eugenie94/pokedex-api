@@ -1,0 +1,66 @@
+/* Styles pour la bannière */
+.banniere {
+  background-color: #f3f3f3;
+  padding: 20px;
+  text-align: center;
+}
+
+.banniere h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Styles pour les liens */
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ff0000;
+  /* Changez la couleur au survol */
+}
+
+.logo {
+  margin-right: 100px !important;
+}
+
+.logo-menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  margin-left: 20px;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
